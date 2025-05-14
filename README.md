@@ -35,7 +35,7 @@ A simple console-based Course Management System rebuilt using **Maven** and **Ja
 ---
 
 ## 📦 Project Structure
-
+```
 Course-Management-System/
 ├── pom.xml
 ├── README.md
@@ -50,7 +50,7 @@ Course-Management-System/
 │ ├── Course.java
 │ ├── StudentCourseManager.java
 │ └── DatabaseManager.java
-
+```
 ---
 
 ## ✅ How to Run
