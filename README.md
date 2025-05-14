@@ -1,8 +1,8 @@
 ﻿# Course-Management-System
  
-# 📚 Course Management System (Java + SQLite)
+# 📚 Course Management System (Java + Maven + SQLite)
 
-A simple console-based Course Management System built using Java and SQLite, designed to help a student manage their university courses, assignments, and final grades using weighted evaluation components.
+A simple console-based Course Management System rebuilt using **Maven** and **Java 17**, designed to help a student manage their university courses, assignments, and final grades using weighted evaluation components.
 
 ---
 
@@ -21,48 +21,57 @@ A simple console-based Course Management System built using Java and SQLite, des
   - Composition (`Course` has `Assignments`)
   - Polymorphism via dashboard method
   - Encapsulation and abstraction
+- Maven project structure and dependency management
 
 ---
 
-## 🛠 Technologies
+## 🛠 Technologies Used
 
-- Java (JDK 17+)
+- Java 17
 - SQLite
 - JDBC (SQLite JDBC driver)
+- Maven (build + dependency management)
 
 ---
 
 ## 📦 Project Structure
+
 Course-Management-System/
-├── Main.java
-├── User.java
-├── Student.java
-├── Instructor.java
-├── Assignment.java
-├── Course.java
-├── StudentCourseManager.java
-├── DatabaseManager.java
-├── course_manager.db (created at runtime)
-└── sqlite-jdbc-<version>.jar
+├── pom.xml
+├── README.md
+├── course_manager.db
+├── src/
+│ └── main/java/com/coursemanager/
+│ ├── Main.java
+│ ├── User.java
+│ ├── Student.java
+│ ├── Instructor.java
+│ ├── Assignment.java
+│ ├── Course.java
+│ ├── StudentCourseManager.java
+│ └── DatabaseManager.java
 
 ---
 
 ## ✅ How to Run
 
-1. **Download the SQLite JDBC driver:**
-   [https://github.com/xerial/sqlite-jdbc/releases](https://github.com/xerial/sqlite-jdbc/releases)
+### 1. Install Maven (if not already)
+[https://maven.apache.org/install.html](https://maven.apache.org/install.html)
 
-2. **Place the `.jar` in the project folder**  
-   e.g., `sqlite-jdbc-3.36.0.3.jar`
+### 2. Clone and compile
+```bash
+git clone https://github.com/Raaed-Mirza/Course-Management-System.git
+cd Course-Management-System
+```
 
 3. **Compile:**
-   ```bash
-   javac -cp ".;sqlite-jdbc-3.36.0.3.jar" *.java
-   ```
+```bash
+mvn compile
+```
 
 4. **Run:**
 ```bash
-java -cp ".;sqlite-jdbc-3.36.0.3.jar" Main
+mvn exec:java
 ```
 
 ## 💡 Example Use
@@ -74,7 +83,7 @@ Login as:
 Enter name: Username
 Enter email: username@gmail.com
 
-Welcome, Raaed (Student)
+Welcome, Username (Student)
 
 1. Add Course
 2. Remove Course
