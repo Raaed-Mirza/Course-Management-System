@@ -1,0 +1,8 @@
+com\coursemanager\User.class
+com\coursemanager\Student.class
+com\coursemanager\Main.class
+com\coursemanager\Assignment.class
+com\coursemanager\StudentCourseManager.class
+com\coursemanager\Course.class
+com\coursemanager\DatabaseManager.class
+com\coursemanager\Instructor.class
