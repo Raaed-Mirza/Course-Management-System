@@ -35,6 +35,7 @@ A simple console-based Course Management System rebuilt using **Maven** and **Ja
 ---
 
 ## 📦 Project Structure
+```
 Course-Management-System/
 ├── pom.xml
 ├── README.md
@@ -61,11 +62,11 @@ Course-Management-System/
 ```bash
 git clone https://github.com/Raaed-Mirza/Course-Management-System.git
 cd Course-Management-System
-mvn compile
+
 
 4. **Run:**
 ```bash
-java -cp ".;sqlite-jdbc-3.36.0.3.jar" Main
+mvn exec:java
 ```
 
 ## 💡 Example Use
@@ -77,7 +78,7 @@ Login as:
 Enter name: Username
 Enter email: username@gmail.com
 
-Welcome, Raaed (Student)
+Welcome, Username (Student)
 
 1. Add Course
 2. Remove Course
