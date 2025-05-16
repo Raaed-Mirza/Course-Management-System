@@ -57,12 +57,18 @@ Course-Management-System/
 ### 1. Install Maven (if not already)
 [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
 
-### 2. Clone and compile
+### 2. Clone
 ```bash
 git clone https://github.com/Raaed-Mirza/Course-Management-System.git
+```
+```
 cd Course-Management-System
+```
+3. **Compile:**
+```
 mvn compile
 ```
+
 4. **Run:**
 ```bash
 mvn exec:java
