@@ -1,21 +1,26 @@
 package com.coursemanager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student extends User {
 
-    private StudentCourseManager manager;
+    private List<Course> enrolledCourses;
 
-    public Student(String name, String email) {
-        super(name, email);
-        this.manager = new StudentCourseManager();
+    public Student(String name, String email, String userId) {
+        super(name, email, userId);
+        this.enrolledCourses = new ArrayList<>();
     }
 
-    public StudentCourseManager getManager() {
-        return manager;
+    public void addCourse(Course course) {
+        enrolledCourses.add(course);
     }
 
-    @Override
-    public void printDashboard() {
-        System.out.println("Welcome, " + name + " (Student)");
-        manager.displayCourses();
+    public void removeCourse(Course course) {
+        enrolledCourses.remove(course);
+    }
+
+    public List<Course> getEnrolledCourses() {
+        return enrolledCourses;
     }
 }
