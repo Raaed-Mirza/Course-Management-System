@@ -50,8 +50,7 @@ public class DatabaseManager {
         try (Connection conn = DriverManager.getConnection(DB_URL); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, course.getCourseCode());
             pstmt.setString(2, course.getCourseName());
-            pstmt.setString(3, course.getInstructorName());
-            pstmt.setDouble(4, course.getCredits());
+            pstmt.setDouble(3, course.getCredits());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +70,6 @@ public class DatabaseManager {
                 Course course = new Course(
                         rs.getString("code"),
                         rs.getString("name"),
-                        rs.getString("instructor"),
                         rs.getDouble("credits") // double because we now use decimal credits
                 );
                 courses.add(course);

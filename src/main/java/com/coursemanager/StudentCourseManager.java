@@ -16,12 +16,12 @@ public class StudentCourseManager {
     }
 
     public void removeCourse(String courseCode) {
-        courses.removeIf(course -> course.getCourseCode().equals(courseCode));
+        courses.removeIf(course -> course.getCourseCode().equalsIgnoreCase(courseCode));
     }
 
     public Course findCourse(String code) {
         for (Course course : courses) {
-            if (course.getCourseCode().equals(code)) {
+            if (course.getCourseCode().equalsIgnoreCase(code)) {
                 return course;
             }
         }
@@ -30,8 +30,16 @@ public class StudentCourseManager {
 
     public void displayCourses() {
         for (Course course : courses) {
-            System.out.println(course.getCourseName() + " (" + course.getCourseCode() + ") - " + course.getInstructorName());
+            System.out.println(course);
         }
     }
 
+    public void displayTasks(Course course) {
+        for (Tasks task : course.getTasks()) {
+            System.out.println(task.getType() + ": " + task.getTitle()
+                    + " | Due: " + task.getDueDate()
+                    + " | Grade: " + (task.getGrade() >= 0 ? task.getGrade() : "Not graded")
+                    + " | Weight: " + task.getWeight() + "%");
+        }
+    }
 }

@@ -7,24 +7,22 @@ public class Course {
 
     private String courseCode;
     private String courseName;
-    private String instructorName;
     private double credits;
-    private List<Assignment> assignments;
+    private List<Tasks> tasks;
 
-    public Course(String courseCode, String courseName, String instructorName, double credits) {
+    public Course(String courseCode, String courseName, double credits) {
         this.courseCode = courseCode;
         this.courseName = courseName;
-        this.instructorName = instructorName;
         this.credits = credits;
-        this.assignments = new ArrayList<>();
+        this.tasks = new ArrayList<>();
     }
 
-    public void addAssignment(Assignment assignment) {
-        assignments.add(assignment);
+    public void addTasks(Tasks task) {
+        tasks.add(task);
     }
 
-    public List<Assignment> getAssignments() {
-        return assignments;
+    public List<Tasks> getTasks() {
+        return tasks;
     }
 
     public String getCourseCode() {
@@ -35,23 +33,34 @@ public class Course {
         return courseName;
     }
 
-    public String getInstructorName() {
-        return instructorName;
-    }
-
     public double getCredits() {
         return credits;
     }
 
-    public double getFinalGrade() {
-        double total = 0;
-        for (Assignment a : assignments) {
-            total += a.getGrade() * (a.getWeight() / 100);
-        }
-        return total;
+    public String toString() {
+        return courseCode + ": " + courseName + " | Credits: " + credits;
     }
 
-    public String toString() {
-        return courseCode + ": " + courseName + " | Instructor: " + instructorName + " | Credits: " + credits;
+    public double getWeightedGradeByType(String type) {
+        double weightedSum = 0;
+        double totalWeight = 0;
+
+        for (Tasks task : tasks) {
+            if (task.getType().equalsIgnoreCase(type) && task.getGrade() >= 0) {
+                weightedSum += task.getGrade() * (task.getWeight() / 100);
+                totalWeight += task.getWeight();
+            }
+        }
+        return (totalWeight == 0) ? 0 : weightedSum / totalWeight;
+    }
+
+    public double calculateFinalGrade(double assginmentsWeight, double testsWeight, double examsWeight, double quizzesWeight) {
+        double assginmentsGrade = getWeightedGradeByType("Assignment") * (assginmentsWeight / 100);
+        double testsGrade = getWeightedGradeByType("Test") * (testsWeight / 100);
+        double examsGrade = getWeightedGradeByType("Exam") * (examsWeight / 100);
+        double quizzesGrade = getWeightedGradeByType("Quiz") * (quizzesWeight / 100);
+
+        return assginmentsGrade + testsGrade + examsGrade + quizzesGrade;
+
     }
 }

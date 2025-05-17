@@ -2,9 +2,9 @@ package com.coursemanager;
 
 import java.time.LocalDate;
 
-public class Test extends Tasks {
+public class Tests extends Tasks {
 
-    public Test(String title, LocalDate dueDate, double grade, double weight) {
+    public Tests(String title, LocalDate dueDate, double grade, double weight) {
         super(title, dueDate, grade, weight);
     }
 

@@ -12,8 +12,8 @@ public abstract class Tasks {
     public Tasks(String title, LocalDate dueDate, double grade, double weight) {
         this.title = title;
         this.dueDate = dueDate;
-        this.grade = grade;
         this.weight = weight;
+        this.grade = -1;
     }
 
     public double getGrade() {
