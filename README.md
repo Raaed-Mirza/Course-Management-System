@@ -1,6 +1,6 @@
 ﻿# Course-Management-System
  
-# 📚 Course Management System (Java + Maven + SQLite)
+# 📚 Course Management System (Java + Maven + SQLite + Java FX)
 
 ![Java](https://img.shields.io/badge/Java-17-blue)
 ![Maven](https://img.shields.io/badge/Maven-3.8.6-red)
